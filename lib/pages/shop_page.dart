@@ -52,7 +52,7 @@ class _ShopPageState extends State<ShopPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Hot Picks',
+                'Top Picks',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               Text(
@@ -69,15 +69,16 @@ class _ShopPageState extends State<ShopPage> {
 
         SizedBox(height: 16),
 
-        Expanded(
+        SizedBox(
+          height: 390,
           child: ListView.builder(
             itemCount: 4,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return ItemTile(
                 item: Item(
-                  name: 'One',
-                  description: 'Descri',
+                  name: 'Brown Maize',
+                  description: 'Lorem ispum something seems improtant or not',
                   price: 20,
                   imageUrl: 'images/cereals.png',
                 ),
