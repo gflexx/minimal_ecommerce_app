@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_ecommerce_app/pages/home_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -9,19 +10,20 @@ class IntroPage extends StatelessWidget {
       backgroundColor: Colors.grey[300],
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(27.0),
+          padding: const EdgeInsets.symmetric(horizontal: 27.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // logo
-              Image.asset('images/logo_img.png', height: 243),
-              SizedBox(height: 36),
+              Image.asset('images/logo_img.png'),
+              SizedBox(height: 45),
 
               // title
               Text(
                 'Your Daily Source of Freshness',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 45),
+              SizedBox(height: 27),
 
               // subheading
               Text(
@@ -29,17 +31,31 @@ class IntroPage extends StatelessWidget {
                 style: TextStyle(fontSize: 16, color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 63),
+              SizedBox(height: 72),
 
               // start now btn
-              Container(
-                decoration: BoxDecoration(color: Colors.green),
-                padding: EdgeInsets.all(16),
-                child: Center(
-                  child: Text(
-                    'Shop Now',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  padding: EdgeInsets.all(16),
+                  child: Center(
+                    child: Text(
+                      'Shop Now',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
