@@ -46,6 +46,12 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: Drawer(
         backgroundColor: Colors.grey[400],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(12),
+            bottomRight: Radius.circular(12),
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -61,6 +67,10 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     leading: Icon(Icons.home),
                     title: Text('Home'),
+                    onTap: (){
+                      Navigator.pop(context);
+                      navigateBottom(0);
+                    },
                   ),
                 ),
                 Padding(
@@ -68,6 +78,10 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     leading: Icon(Icons.shopping_bag_rounded),
                     title: Text('Cart'),
+                    onTap: (){
+                      Navigator.pop(context);
+                      navigateBottom(1);
+                    },
                   ),
                 ),
               ],

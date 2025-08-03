@@ -3,7 +3,8 @@ import 'package:minimal_ecommerce_app/models/item.dart';
 
 class ItemTile extends StatelessWidget {
   final Item item;
-  const ItemTile({super.key, required this.item});
+  final void Function()? onTap;
+  const ItemTile({super.key, required this.item, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -51,22 +52,25 @@ class ItemTile extends StatelessWidget {
                   ),
                 ),
 
-                Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.only(top:12),
-                  padding: EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(9),
-                    color: Colors.green
-                  ),
-                  child: Text(
-                    'Add to Cart',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.only(top:12),
+                    padding: EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9),
+                      color: Colors.green
                     ),
-                    textAlign: TextAlign.center,
+                    child: Text(
+                      'Add to Cart',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ],

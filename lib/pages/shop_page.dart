@@ -12,6 +12,17 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+  //  add item to cart
+  void addItemToCart(Item item){
+    debugPrint('happen?');
+    Provider.of<Cart>(context, listen: false).addToCart(item);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${item.name} added to cart!'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Consumer<Cart>(
@@ -82,7 +93,8 @@ class _ShopPageState extends State<ShopPage> {
                 itemBuilder: (context, index) {
                   Item item = value.getItemsForSale()[index];
                   return ItemTile(
-                    item: item
+                    item: item,
+                    onTap: () => addItemToCart(item),
                   );
                 },
               ),
@@ -90,7 +102,7 @@ class _ShopPageState extends State<ShopPage> {
 
             SizedBox(height: 36),
 
-            // hot picks
+            // recently added section
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Row(
@@ -124,7 +136,8 @@ class _ShopPageState extends State<ShopPage> {
                   final reversedList = value.getItemsForSale().reversed.toList();
                   final item = reversedList[index];
                   return ItemTile(
-                    item: item
+                    item: item,
+                    onTap: () => addItemToCart(item),
                   );
                 },
               ),
