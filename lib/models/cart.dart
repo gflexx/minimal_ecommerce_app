@@ -37,7 +37,7 @@ class Cart extends ChangeNotifier {
   ];
 
   // list of items in user cart
-  List<Item> useCartItems = [];
+  List<Item> userCartItems = [];
 
   // get list of items for sale
   List<Item> getItemsForSale() {
@@ -46,18 +46,18 @@ class Cart extends ChangeNotifier {
 
   // get cart
   List<Item> getCartItems() {
-    return useCartItems;
+    return userCartItems;
   }
 
   //  add item to cart
   void addToCart(Item item){
-    useCartItems.add(item);
+    userCartItems.add(item);
     notifyListeners();
   }
 
   // remove item from cart
   void removeFromCart(Item item) {
-    useCartItems.remove(item);  
+    userCartItems.remove(item);  
     notifyListeners();
   }
 

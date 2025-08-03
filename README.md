@@ -12,3 +12,4 @@ flutter pub get
 
 ## Preview
 ![Description](scrn_shots/home_page_ui.png)
+![Description](scrn_shots/cart_page_ui.png)
