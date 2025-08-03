@@ -1,16 +1,14 @@
-# minimal_ecommerce_app
+# Minimal Ecommerce App
 
-A new Flutter project.
+A simple Flutter app for UI and Statemanagement practice
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Clone the repo, then run:
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Preview
+![Description](scrn_shots/home_page_ui.png)
