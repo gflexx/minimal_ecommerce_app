@@ -10,8 +10,15 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Welcome to shop'),
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[100]
+          ),
+          child: Text('Search'),
+        )
+      ],
     );
   }
 }
