@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/bottom_nav_bar.dart';
 import 'package:minimal_ecommerce_app/pages/cart_page.dart';
+import 'package:minimal_ecommerce_app/pages/products_page.dart';
 import 'package:minimal_ecommerce_app/pages/shop_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -61,24 +62,42 @@ class _HomePageState extends State<HomePage> {
                 DrawerHeader(child: Image.asset('images/logo_img.png')),
                 SizedBox(height: 18),
 
-                // home and cart options
+                // home page
                 Padding(
                   padding: const EdgeInsets.only(left: 27.0),
                   child: ListTile(
                     leading: Icon(Icons.home),
                     title: Text('Home'),
-                    onTap: (){
+                    onTap: () {
                       Navigator.pop(context);
                       navigateBottom(0);
                     },
                   ),
                 ),
+
+                // products page
                 Padding(
                   padding: const EdgeInsets.only(left: 27.0),
                   child: ListTile(
                     leading: Icon(Icons.shopping_bag_rounded),
+                    title: Text('Products'),
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProductsPage()),
+                      );
+                    },
+                  ),
+                ),
+
+                // cart page
+                Padding(
+                  padding: const EdgeInsets.only(left: 27.0),
+                  child: ListTile(
+                    leading: Icon(Icons.shopping_cart),
                     title: Text('Cart'),
-                    onTap: (){
+                    onTap: () {
                       Navigator.pop(context);
                       navigateBottom(1);
                     },
