@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/cart_item.dart';
 import 'package:minimal_ecommerce_app/models/cart.dart';
 import 'package:minimal_ecommerce_app/models/item.dart';
+import 'package:minimal_ecommerce_app/pages/checkout_page.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
@@ -51,18 +52,24 @@ class CartPage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              
+
                               // checkout button
                               GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   debugPrint('To checkout page');
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => CheckoutPage(), // pass full item
+                                    ),
+                                  );
                                 },
                                 child: Container(
-                                  margin: EdgeInsets.only(top:12),
+                                  margin: EdgeInsets.only(top: 12),
                                   padding: EdgeInsets.all(12),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(9),
-                                    color: Colors.green
+                                    color: Colors.green,
                                   ),
                                   child: Text(
                                     'Checkout',
