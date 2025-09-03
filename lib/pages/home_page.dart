@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/bottom_nav_bar.dart';
 import 'package:minimal_ecommerce_app/pages/cart_page.dart';
 import 'package:minimal_ecommerce_app/pages/products_page.dart';
+import 'package:minimal_ecommerce_app/pages/profile_page.dart';
 import 'package:minimal_ecommerce_app/pages/shop_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  final List<Widget> _pages = [const ShopPage(), const CartPage()];
+  final List<Widget> _pages = [const ShopPage(), const CartPage(), const ProfilePage()];
 
   @override
   Widget build(BuildContext context) {
