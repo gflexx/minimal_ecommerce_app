@@ -1,6 +1,6 @@
 # Minimal Ecommerce App
 
-A simple Flutter app for UI and Statemanagement practice
+A simple Flutter app for UI and Statemanagement (Grocery App)
 
 ## Getting Started
 
