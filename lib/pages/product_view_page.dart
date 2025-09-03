@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_ecommerce_app/models/cart.dart';
 import 'package:minimal_ecommerce_app/models/item.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,30 @@ class ProductViewPage extends StatefulWidget {
 }
 
 class _ProductViewPageState extends State<ProductViewPage> {
+  void addItemToCart(Item item) {
+    // check if in cart
+
+    bool isInCart = Provider.of<Cart>(context, listen: false).isInCart(item);
+
+    if (isInCart) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('${item.name} is already in cart!'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
+    Provider.of<Cart>(context, listen: false).addToCart(item);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${item.name} added to cart!'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer(
@@ -24,10 +49,13 @@ class _ProductViewPageState extends State<ProductViewPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(widget.item.imageUrl, fit: BoxFit.cover),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(widget.item.imageUrl, fit: BoxFit.cover),
+                  ),
                 ),
               ),
               SizedBox(height: 20),
@@ -56,13 +84,20 @@ class _ProductViewPageState extends State<ProductViewPage> {
                 ),
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: 10),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // category
+                    Text(
+                      widget.item.categoryName,
+                      style: TextStyle(color: Colors.grey),
+                      textAlign: TextAlign.start,
+                    ),
+                    SizedBox(height: 40),
                     // description
                     Text(
                       "Description",
@@ -72,6 +107,37 @@ class _ProductViewPageState extends State<ProductViewPage> {
                     SizedBox(height: 20),
 
                     Text(widget.item.description),
+
+                    SizedBox(height: 40),
+
+                    GestureDetector(
+                      onTap: () => addItemToCart(widget.item),
+                      child: Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(top: 12),
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(9),
+                          color: Colors.green,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.shopping_cart),
+                            SizedBox(width: 9),
+                            Text(
+                              'Add to Cart',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

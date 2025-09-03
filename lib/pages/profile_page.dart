@@ -38,7 +38,7 @@ class ProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Mwai Obako',
+              'Tupak Shakur',
               style: TextStyle(
                 fontSize: 20, 
                 fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class ProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 9),
             Text(
-              'mwai@obako.com',
+              'tupac@shakur.com',
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.grey[600],

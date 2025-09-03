@@ -6,6 +6,7 @@ class Cart extends ChangeNotifier {
   List<Item> itemlist = [
     Item(
       name: 'Popcorn Maize',
+      categoryName: 'Grains',
       description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
       price: 200,
@@ -13,6 +14,7 @@ class Cart extends ChangeNotifier {
     ),
     Item(
       name: 'Citrus Banana Fruit Bundle',
+      categoryName: 'Fruits',
       description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
       price: 300,
@@ -20,6 +22,7 @@ class Cart extends ChangeNotifier {
     ),
     Item(
       name: 'Zuchini',
+      categoryName: 'Greens',
       description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
       price: 300,
@@ -27,6 +30,7 @@ class Cart extends ChangeNotifier {
     ),
     Item(
       name: 'Broccoli Cabbage Pack',
+      categoryName: 'Vegetables',
       description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
       price: 150,
@@ -34,6 +38,7 @@ class Cart extends ChangeNotifier {
     ),
     Item(
       name: 'Carrot Special Pack',
+      categoryName: 'Root Vegetables',
       description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
       price: 400,
