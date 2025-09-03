@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/models/cart.dart';
 import 'package:minimal_ecommerce_app/models/item.dart';
+import 'package:minimal_ecommerce_app/pages/product_view_page.dart';
 import 'package:provider/provider.dart';
 
 class CartItem extends StatefulWidget {
@@ -13,7 +14,7 @@ class CartItem extends StatefulWidget {
 
 class _CartItemState extends State<CartItem> {
   // remove item from cart
-  void removeItemFromCart(){
+  void removeItemFromCart() {
     Provider.of<Cart>(context, listen: false).removeFromCart(widget.item);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -22,6 +23,7 @@ class _CartItemState extends State<CartItem> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,20 +36,32 @@ class _CartItemState extends State<CartItem> {
         //  cart item image
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(6.3),
-          child: Image.asset(
-            widget.item.imageUrl,
-          ),
+          child: Image.asset(widget.item.imageUrl),
         ),
 
         // cart item name
-        title: Text(widget.item.name, style: TextStyle(fontWeight: FontWeight.bold),),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) =>
+                    ProductViewPage(item: widget.item), // pass full item
+              ),
+            );
+          },
+          child: Text(
+            widget.item.name,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
 
         // cart item price
-        subtitle: Text('${widget.item.price.toStringAsFixed(2)} Ksh.') ,
+        subtitle: Text('${widget.item.price.toStringAsFixed(2)} Ksh.'),
 
         // cart item delete btn
         trailing: IconButton(
-          icon: Icon(Icons.delete, color: Colors.red,),
+          icon: Icon(Icons.delete, color: Colors.red),
           onPressed: () => removeItemFromCart(),
         ),
       ),

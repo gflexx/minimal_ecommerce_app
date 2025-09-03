@@ -51,7 +51,7 @@ class _ProductsPageState extends State<ProductsPage> {
             children: [
               // search bar
               Container(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(27),
                 margin: EdgeInsets.symmetric(horizontal: 27, vertical: 18),
                 decoration: BoxDecoration(
                   color: Colors.grey[100],

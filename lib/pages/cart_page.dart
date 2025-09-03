@@ -12,7 +12,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Cart>(
       builder: (context, cart, child) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 27),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -16,13 +16,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
   Widget build(BuildContext context) {
     return Consumer<Cart>(
       builder: (context, cart, child) => Scaffold(
+        backgroundColor: Colors.grey[300],
         appBar: AppBar(
           title: Text('Checkout'),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 27),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,13 +49,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   'Payment',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 Row(
                   children: [
                     Container(
                       padding: EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
+                        color: Colors.grey[400],
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Icon(Icons.credit_card),
