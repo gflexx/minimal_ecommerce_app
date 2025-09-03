@@ -22,7 +22,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           elevation: 0,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 7),
+          padding: const EdgeInsets.symmetric(horizontal: 27),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,15 +52,94 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 Row(
                   children: [
                     Container(
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      child: Icon(Icons.credit_card)),
-                    SizedBox(width: 10,),
-                    Text('Pay with PayStack', style: TextStyle(fontWeight: FontWeight.bold),)
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Icon(Icons.credit_card),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      'Pay with PayStack',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ],
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // sub total
+                    Text('Sub Total', style: TextStyle(fontSize: 16)),
+                    Text(
+                      '${cart.getCartItems().fold(0.0, (total, item) => total + item.price).toStringAsFixed(2)} Ksh.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // delivery price
+                    Text('Delivery', style: TextStyle(fontSize: 16)),
+                    Text(
+                      '${50.00.toStringAsFixed(2)} Ksh.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // total price
+                    Text('Total', style: TextStyle(fontSize: 16)),
+                    Text(
+                      // ignore: prefer_interpolation_to_compose_strings
+                      (cart.getCartItems().fold(
+                                    0.0,
+                                    (total, item) => total + item.price,
+                                  ) +
+                                  50.00)
+                              .toStringAsFixed(2) +
+                          ' Ksh.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 70),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.only(top: 12),
+                    padding: EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9),
+                      color: Colors.green,
+                    ),
+                    child: Text(
+                      'Paywith Paystack',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
               ],
             ),
