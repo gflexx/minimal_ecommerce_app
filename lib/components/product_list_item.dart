@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/models/cart.dart';
 import 'package:minimal_ecommerce_app/models/item.dart';
+import 'package:minimal_ecommerce_app/pages/product_view_page.dart';
 import 'package:provider/provider.dart';
 
 class ProductListItem extends StatefulWidget {
@@ -17,7 +18,7 @@ class _ProductListItemState extends State<ProductListItem> {
     // check if in cart
 
     bool isInCart = Provider.of<Cart>(context, listen: false).isInCart(item);
-    
+
     if (isInCart) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -52,18 +53,30 @@ class _ProductListItemState extends State<ProductListItem> {
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-              //  item image
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  widget.item.imageUrl,
-                  fit: BoxFit.cover,
-                  height: 180,
-                  width: double.infinity,
-                  alignment: Alignment.center
+              // go to product details page
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => ProductViewPage(item: widget.item), // pass full item
+                    ),
+                  );
+                },
+                //  item image
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    widget.item.imageUrl,
+                    fit: BoxFit.cover,
+                    height: 180,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                  ),
                 ),
               ),
 
+              //  item image
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(

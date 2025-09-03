@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/models/item.dart';
+import 'package:minimal_ecommerce_app/pages/product_view_page.dart';
 
 class ItemTile extends StatelessWidget {
   final Item item;
@@ -19,27 +20,50 @@ class ItemTile extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          //  item image
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(item.imageUrl, fit: BoxFit.cover),
+          // go to product details page
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ProductViewPage(item: item), // pass full item
+                ),
+              );
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(item.imageUrl, fit: BoxFit.cover),
+            ),
           ),
 
+          //  item image
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                // item name
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: Text(
-                    item.name,
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                // go to product details page
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            ProductViewPage(item: item), // pass full item
+                      ),
+                    );
+                  },
+                  // item name
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Text(
+                      item.name,
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
@@ -56,11 +80,11 @@ class ItemTile extends StatelessWidget {
                   onTap: onTap,
                   child: Container(
                     width: double.infinity,
-                    margin: EdgeInsets.only(top:12),
+                    margin: EdgeInsets.only(top: 12),
                     padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(9),
-                      color: Colors.green
+                      color: Colors.green,
                     ),
                     child: Text(
                       'Add to Cart',
