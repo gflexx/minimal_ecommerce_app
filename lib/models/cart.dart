@@ -49,6 +49,10 @@ class Cart extends ChangeNotifier {
     return userCartItems;
   }
 
+  bool isInCart(Item item) {
+    return userCartItems.contains(item);
+  }
+
   //  add item to cart
   void addToCart(Item item){
     userCartItems.add(item);

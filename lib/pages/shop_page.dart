@@ -14,7 +14,18 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   //  add item to cart
   void addItemToCart(Item item){
-    debugPrint('happen?');
+    bool isInCart = Provider.of<Cart>(context, listen: false).isInCart(item);
+    
+    if (isInCart) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('${item.name} is already in cart!'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
     Provider.of<Cart>(context, listen: false).addToCart(item);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

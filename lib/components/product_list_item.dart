@@ -14,6 +14,20 @@ class ProductListItem extends StatefulWidget {
 class _ProductListItemState extends State<ProductListItem> {
   // add items to cart
   void addItemToCart(Item item) {
+    // check if in cart
+
+    bool isInCart = Provider.of<Cart>(context, listen: false).isInCart(item);
+    
+    if (isInCart) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('${item.name} is already in cart!'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
     Provider.of<Cart>(context, listen: false).addToCart(item);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
